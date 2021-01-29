@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -17,7 +17,7 @@ const RecipesListScreen = ({ navigation }) => {
   });
 
   const _renderItem = ({ item }) => {
-    return <RecipeListItem item={item} />;
+    return <RecipeListItem item={item} navigation={navigation} />;
   };
 
   return (
@@ -28,12 +28,6 @@ const RecipesListScreen = ({ navigation }) => {
         ItemSeparatorComponent={() => {
           return <View style={styles.separator} />;
         }}
-      />
-      <Button
-        onPress={() => {
-          navigation.navigate("RecipeDetails");
-        }}
-        title="Go to Detail"
       />
     </View>
   );

@@ -1,9 +1,15 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const RecipeListItem = ({ item }) => {
+const RecipeListItem = ({ item, navigation }) => {
   return (
-    <TouchableOpacity onPress={() => {}}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("RecipeDetails", {
+          id: item.id,
+        });
+      }}
+    >
       <View style={styles.container}>
         <Image source={{ uri: item.image }} style={styles.image} />
         <Text style={styles.title}>{item.title}</Text>
