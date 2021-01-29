@@ -11,14 +11,15 @@ const RecipesListScreen = ({ navigation }) => {
 
   useEffect(() => {
     fetchRecipes(dispatch);
-  }, []);
+  });
 
   return (
     <View style={styles.container}>
       <Text>RecipesListScreen</Text>
-      {recipes.map((recipe) => {
-        return <Text>{recipe.title}</Text>;
-      })}
+      {recipes &&
+        recipes.map((recipe) => {
+          return <Text>{recipe.title}</Text>;
+        })}
       <Button
         onPress={() => {
           navigation.navigate("RecipeDetails");
